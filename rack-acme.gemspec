@@ -16,4 +16,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["lib/**/*.rb"] + Dir["exe/*"]
   spec.add_dependency "rack"
   spec.add_dependency "acme-client"
+  spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rubygems-tasks", "~> 0.2"
 end
