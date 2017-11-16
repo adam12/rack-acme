@@ -37,6 +37,13 @@ module Rack::Acme
 
         sleep 1
 
+        tries = 3
+        while challenge.verify_status == "pending"
+          sleep 1
+
+          break if (tries -= 1) <= 0
+        end
+
         csr = ::Acme::Client::CertificateRequest.new(names: [domain])
         certificate = client.new_certificate(csr)
 
